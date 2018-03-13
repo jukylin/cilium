@@ -20,6 +20,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"time"
 
 	"github.com/cilium/cilium/pkg/flowdebug"
 
@@ -32,6 +33,8 @@ type RequestMessage struct {
 	version int16
 	rawMsg  []byte
 	request interface{}
+
+	created time.Time
 }
 
 // GetAPIKey returns the kind of Kafka request
