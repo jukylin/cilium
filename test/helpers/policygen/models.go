@@ -549,7 +549,7 @@ func (t *TestSpec) CreateCiliumNetworkPolicy() (string, error) {
 			return "", err
 		}
 		specs = append(specs, api.Rule{
-			EndpointSelector: api.EndpointSelector{
+			EndpointSelector: {
 				&metav1.LabelSelector{MatchLabels: map[string]string{
 					"id": t.DestPod,
 				}},
@@ -571,7 +571,7 @@ func (t *TestSpec) CreateCiliumNetworkPolicy() (string, error) {
 		}
 
 		specs = append(specs, api.Rule{
-			EndpointSelector: api.EndpointSelector{
+			EndpointSelector: {
 				&metav1.LabelSelector{MatchLabels: map[string]string{
 					"id": t.SrcPod,
 				}},
